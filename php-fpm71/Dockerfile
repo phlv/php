@@ -15,4 +15,4 @@ RUN yum install php-swoole${PHP_VERSION} -y
 RUN ln -s /usr/local/php${PHP_VERSION}/sbin/php-fpm /usr/sbin/php-fpm
 RUN ln -s /usr/local/php${PHP_VERSION}/bin/php /usr/sbin/php
 
-ENTRYPOINT ["php-fpm"]
+CMD ["php-fpm"]
