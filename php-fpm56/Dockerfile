@@ -15,6 +15,7 @@ RUN yum install php-amqp${PHP_VERSION} -y
 
 RUN echo "zend_loader.license_path='/data/httpd/docker/php/php-fpm56/etc/'" >>  /usr/local/php56/etc/php.d/Zend.ini
 RUN sed -i 's/127.0.0.1:9000/[::]:9000/g' "/usr/local/php56/etc/php-fpm.conf"
+RUN sed -i 's/51200/512/g' "/usr/local/php56/etc/php-fpm.conf"
 RUN sed -i 's/;daemonize = yes/daemonize = no/g' "/usr/local/php56/etc/php-fpm.conf"
 RUN sed -i 's/ = 128/ = 5/g' "/usr/local/php56/etc/php-fpm.conf"
 RUN sed -i 's/display_errors = Off/display_errors = On/g' "$PHP_PATH/etc/php.ini"
